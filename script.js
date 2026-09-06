@@ -26,7 +26,7 @@ button.addEventListener('click', (e) => {
   const transName = transactionName.value.trim()
   const transAmount = parseFloat(transactionAmount.value.trim())
 
-  if (transName === '' || transAmount === '' || transAmount === NaN) {
+  if (transName === '' || isNaN(transAmount)) {
     alert('Enter transaction name and amount to continue')
     return
   }
@@ -45,7 +45,15 @@ button.addEventListener('click', (e) => {
   deleteTransaction.className = 'delete_trans'
 
   deleteTransaction.addEventListener('click', () => {
+    
+    currentBalance -= transAmount
+    if(transAmount > 0 ){
+        currentIncome -= transAmount
+    }else{
+        currentExpense -= transAmount
+    }
     newTransaction.remove()
+    update_transaction()
   })
 
   newTransaction.textContent = `${transName} ${transAmount} `
