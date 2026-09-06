@@ -11,9 +11,13 @@ let currentExpense = 0
 let currentBalance = 0
 
 const update_transaction = () => {
-    balance.textContent = `$${currentBalance.toFixed(2)}`
-    income.textContent = `$${currentIncome.toFixed(2)}`
-    balance.textContent = `$${currentBalance.toFixed(2)}`
+ const numBalance = Number(currentBalance)
+ const numIncome = Number(currentIncome)
+ const numExpense = Number(currentExpense)
+
+    balance.textContent = `$${numBalance.toFixed(2)}`
+    income.textContent = `$${numIncome.toFixed(2)}`
+    expense.textContent = `$${numExpense.toFixed(2)}`
 }
 
 button.addEventListener('click', (e) => {
@@ -26,6 +30,14 @@ button.addEventListener('click', (e) => {
     alert('Enter transaction name and amount to continue')
     return
   }
+   currentBalance += transAmount
+   if(transAmount > 0){
+    currentIncome += transAmount
+   }else{
+    currentExpense += transAmount
+   }
+
+   update_transaction()
 
   const newTransaction = document.createElement('li')
   const deleteTransaction = document.createElement('button')
