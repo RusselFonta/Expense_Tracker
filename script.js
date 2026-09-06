@@ -24,9 +24,9 @@ button.addEventListener('click', (e) => {
   e.preventDefault()
 
   const transName = transactionName.value.trim()
-  const transAmount = transactionAmount.value.trim()
+  const transAmount = parseFloat(transactionAmount.value.trim())
 
-  if (transName === '' || transAmount === '') {
+  if (transName === '' || transAmount === '' || transAmount === NaN) {
     alert('Enter transaction name and amount to continue')
     return
   }
