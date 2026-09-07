@@ -144,3 +144,15 @@ input:focus {
     cursor: pointer;
     border: none;
 }
+.reset{
+  width: 100%;
+  padding: 14px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+}
