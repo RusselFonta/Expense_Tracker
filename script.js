@@ -1,0 +1,131 @@
+// initialization of variable
+const button = document.querySelector('.add-btn')
+const balance = document.querySelector('.balance')
+const reset = document.querySelector('.reset')
+const income = document.querySelector('.income')
+const expense = document.querySelector('.expense')
+const transactionName = document.getElementById('transaction')
+const transactionAmount = document.getElementById('amount')
+const transactionList = document.querySelector('.list')
+
+// conversion to floating number and extraction of initial constant for local storage
+let currentIncome = parseFloat(localStorage.getItem('currentIncome')) || 0
+let currentExpense = parseFloat(localStorage.getItem('currentExpense')) || 0
+let currentBalance = parseFloat(localStorage.getItem('currentBalance')) || 0
+let saveTransaction = JSON.parse(localStorage.getItem('saveTransaction')) || []
+
+// convection to string since array, object and value are store in local storage in string form
+const saveToLocalStorage = () => {
+  localStorage.setItem('currentIncome', currentIncome)
+  localStorage.setItem('currentExpense', currentExpense)
+  localStorage.setItem('currentBalance', currentBalance)
+  localStorage.setItem('saveTransaction', JSON.stringify(saveTransaction))
+}
+
+const updateTransaction = () => {
+  const numBalance = Number(currentBalance)
+  const numIncome = Number(currentIncome)
+  const numExpense = Number(currentExpense)
+
+  balance.textContent = `$${numBalance.toFixed(2)}`
+  income.textContent = `$${numIncome.toFixed(2)}`
+  expense.textContent = `$${numExpense.toFixed(2)}`
+}
+
+// function to create new tag and application of border style base transAmount
+function renderTransactionDOM (trans) {
+  const newTransaction = document.createElement('li')
+  newTransaction.style.borderRight = trans.amount < 0 ? '4px solid #ff0000' : '4px solid #03fc5e'
+
+  const sign = trans.amount < 0 ? '-' : '+'
+  const formattedAmount = Math.abs(trans.amount).toFixed(2)
+
+  const nameSpan = document.createElement('span')
+  nameSpan.textContent = trans.name
+
+  const amountSpan = document.createElement('span')
+  amountSpan.textContent = `${sign}$${formattedAmount}`
+
+  const deleteTransaction = document.createElement('button')
+  deleteTransaction.textContent = 'X'
+  deleteTransaction.className = 'delete-trans'
+
+  // event listener to delete a transaction base on the transaction id
+  deleteTransaction.addEventListener('click', () => {
+    saveTransaction = saveTransaction.filter(tr => tr.id !== trans.id)
+
+    currentBalance -= trans.amount
+    if (trans.amount > 0) {
+      currentIncome -= trans.amount
+    } else {
+      currentExpense -= trans.amount
+    }
+
+    newTransaction.remove()
+    saveToLocalStorage()
+    updateTransaction()
+  })
+
+  newTransaction.appendChild(nameSpan)
+  newTransaction.appendChild(amountSpan)
+  newTransaction.appendChild(deleteTransaction)
+  transactionList.appendChild(newTransaction)
+}
+
+button.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  // tracking user input and verification of the content
+  const transName = transactionName.value.trim()
+  const transAmount = parseFloat(transactionAmount.value.trim())
+
+  if (transName === '' || isNaN(transAmount)) {
+    alert('Enter transaction name and amount to continue')
+    return
+  }
+
+  // initialization of an object that will be use as parameter in function
+  const transation = {
+    id: Date.now(),
+    name: transName,
+    amount: transAmount
+  }
+
+  currentBalance += transation.amount
+  if (transation.amount > 0) {
+    currentIncome += transation.amount
+  } else {
+    currentExpense += transation.amount
+  }
+
+  saveTransaction.push(transation)
+
+  renderTransactionDOM(transation)
+  saveToLocalStorage()
+  updateTransaction()
+
+  transactionName.value = ''
+  transactionAmount.value = ''
+})
+
+// reset button to clear the entire information include the one in the local storage
+reset.addEventListener('click', () => {
+  if (confirm("Do you want to reset everything'historique ?")) {
+    localStorage.clear()
+    currentIncome = 0
+    currentExpense = 0
+    currentBalance = 0
+    saveTransaction = []
+    transactionList.innerHTML = ''
+
+    updateTransaction()
+  }
+})
+
+const init = () => {
+  transactionList.innerHTML = ''
+  saveTransaction.forEach(renderTransactionDOM)
+  updateTransaction()
+}
+
+init()

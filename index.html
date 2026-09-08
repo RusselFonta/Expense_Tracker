@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Expense Tracker</title>
+    <!-- importing fonts from google -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="icon" type="image/png" href="asset/image/expense-tracker-icon.PNG" />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <h2>Expense Tracker</h2>
+    </header>
+    <main class="container">
+      <h4>Your Balance</h4>
+      <h1 class="balance">$0.00</h1>
+      <div class="display-income">
+        <h4>Income</h4>
+        <p class="income">$0.00</p>
+      </div>
+      <div class="display-expense">
+        <h4>Expense</h4>
+        <p class="expense">-$0.00</p>
+      </div>
+      <h3>Histotry</h3>
+      <ul class="list"></ul>
+      <h3>Add new Transaction</h3>
+      <form action="">
+        <div>
+          <label for="name">Transaction</label>
+          <input type="text" id="transaction" placeholder="Enter Transaction name" />
+      </div>
+        <div>
+            <label for="amount">Amount</label>
+          <input type="number" id="amount" placeholder="Enter amount" />
+        </div>
+        <div>
+        <button class="add-btn">Add Transaction</button>
+        <button class="reset">Reset</button>
+        </div>
+      </form>
+    </main>
+    <script src="script.js" defer></script>
+  </body>
+</html>
