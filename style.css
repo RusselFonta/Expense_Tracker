@@ -137,14 +137,14 @@ input:focus {
   background-color: #ccc;
 }
 
-.delete_trans{
-    width: 25px;
-    background-color: #fd0202;
-    color: white;
-    cursor: pointer;
-    border: none;
+.delete_trans {
+  width: 25px;
+  background-color: #fd0202;
+  color: white;
+  cursor: pointer;
+  border: none;
 }
-.reset{
+.reset {
   width: 100%;
   padding: 14px;
   background-color: #fff;
