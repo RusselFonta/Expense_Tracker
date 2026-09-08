@@ -48,7 +48,7 @@ function renderTransactionDOM (trans) {
 
   const deleteTransaction = document.createElement('button')
   deleteTransaction.textContent = 'X'
-  deleteTransaction.className = 'delete_trans'
+  deleteTransaction.className = 'delete-trans'
 
   // event listener to delete a transaction base on the transaction id
   deleteTransaction.addEventListener('click', () => {
