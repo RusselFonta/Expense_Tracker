@@ -46,8 +46,8 @@ header h2 {
   color: #fff;
 }
 
-.display_expense,
-.display_income {
+.display-expense,
+.display-income {
   background-color: #111;
   border: 1px solid #333;
   border-radius: 8px;
@@ -57,8 +57,8 @@ header h2 {
   justify-content: space-between;
 }
 
-.display_income h4,
-.display_expense h4 {
+.display-income h4,
+.display-expense h4 {
   color: #888;
 }
 
