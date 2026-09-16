@@ -110,7 +110,7 @@ button.addEventListener('click', (e) => {
 
 // reset button to clear the entire information include the one in the local storage
 reset.addEventListener('click', () => {
-  if (confirm("Do you want to reset everything'historique ?")) {
+  if (confirm("Do you want to reset everything'history ?")) {
     localStorage.clear()
     currentIncome = 0
     currentExpense = 0
