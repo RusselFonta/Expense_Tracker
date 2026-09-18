@@ -80,7 +80,7 @@ button.addEventListener('click', (e) => {
   const transAmount = parseFloat(transactionAmount.value.trim())
 
   if (transName === '' || isNaN(transAmount) || transAmount === 0) {
-    alert('Enter transaction name and amount to continue')
+    alert("Enter a transaction name and amount to continue and the amount enter can't be zero")
     return
   }
 
