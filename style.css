@@ -135,7 +135,7 @@ input:focus {
   transition: all 0.2s ease;
 }
 
-.button-section{
+.button-section {
   height: 60px;
   display: flex;
   gap: 12px;
