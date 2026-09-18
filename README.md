@@ -51,7 +51,7 @@ To clone and run this project locally, execute the following commands in your te
 git clone https://github.com/RusselFonta/Expense_Tracker.git
 
 # Navigate into the project directory
-cd Expense-Tracker
+cd Expense_Tracker
 
 # Switch branch to feature/Expense_Tracker if you are on the main branch
 git checkout feature/Expense_Tracker
