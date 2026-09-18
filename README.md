@@ -30,11 +30,12 @@ Managing daily personal cash flow requires a quick, frictionless tool to log inc
 ---
 
 ## 🖥️ Features
-* **Real-time Balance Calculations**: Dynamically updates total balance, income, and expenses as transactions are added or deleted.
-* **Persistent Storage**: Utilizes `localStorage` to retain transaction history across browser reloads.
-* **Two-way Transaction Deletion**: Supports granular transaction removal while maintaining exact balance and expense totals.
-* **DOM Protection**: Secure DOM rendering built with `createElement` and `textContent` bindings rather than direct HTML template injection.
-* **Fully Responsive Layout**: Fluid design that adapts seamlessly from mobile viewports (375px+) to desktop without hardcoded media queries.
+* **Real-time Balance Calculations:** Dynamic updates for Total Balance, Total Income, and Total Expense as transactions are added or deleted.
+* **Transaction Categorization:** Automatic visual border-color indicators (Green for Income, Red for Expense) based on transaction values.
+* **Persistent Storage:** All transactions and calculated totals are synced to the browser's `localStorage` so data remains intact across page reloads.
+* **Input Guarding & Validation:** Rejects empty inputs, invalid numbers, and zero values to keep data integrity accurate.
+* **Two-way Delete Functionality:** Individual items can be removed, automatically updating the overall balance, income, or expense counters and recalculating stored data.
+* **Data Reset:** Includes a Reset button to clear all transactions, localStorage items, and reset balances back to zero.
 
 ---
 
