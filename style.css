@@ -147,7 +147,7 @@ input:focus {
 }
 
 .delete-trans {
-  width: 25px;
+  width: 35px;
   background-color: #fd0202;
   color: white;
   cursor: pointer;
