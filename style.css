@@ -147,13 +147,17 @@ input:focus {
 
 .reset {
   width: 100%;
-  padding: 14px;
-  background-color: #fff;
-  color: #000;
-  border: none;
+  background-color: transparent;
+  color: #dc3545;
+  border: 2px solid #dc3545;
   border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: bold;
+  padding: 10px 16px;
   cursor: pointer;
+  transition: all 0.2s ease;
   margin-top: 8px;
+}
+
+.reset:hover {
+  background-color: #dc3545;
+  color: #fff;
 }
