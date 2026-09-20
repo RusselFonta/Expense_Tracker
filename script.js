@@ -9,16 +9,10 @@ const transactionAmount = document.getElementById('amount')
 const transactionList = document.querySelector('.list')
 
 // conversion to floating number and extraction of initial constant for local storage
-let currentIncome = parseFloat(localStorage.getItem('currentIncome')) || 0
-let currentExpense = parseFloat(localStorage.getItem('currentExpense')) || 0
-let currentBalance = parseFloat(localStorage.getItem('currentBalance')) || 0
 let saveTransaction = JSON.parse(localStorage.getItem('saveTransaction')) || []
 
 // convection to string since array, object and value are store in local storage in string form
 const saveToLocalStorage = () => {
-  localStorage.setItem('currentIncome', currentIncome)
-  localStorage.setItem('currentExpense', currentExpense)
-  localStorage.setItem('currentBalance', currentBalance)
   localStorage.setItem('saveTransaction', JSON.stringify(saveTransaction))
 }
 
