@@ -34,11 +34,10 @@ const updateTransaction = () => {
   balance.textContent = `${balanceSign}$${Math.abs(currentBalance).toFixed(2)}`
   income.textContent = `+$${currentIncome.toFixed(2)}`
   expense.textContent = `${expenseSign}$${Math.abs(currentExpense).toFixed(2)}`
-
 }
 
 // function to create new tag and application of border style base transAmount
-function renderTransactionDOM(trans) {
+function renderTransactionDOM (trans) {
   const newTransaction = document.createElement('li')
   newTransaction.style.borderRight = trans.amount < 0 ? '4px solid #ff0000' : '4px solid #03fc5e'
 
