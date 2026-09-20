@@ -85,4 +85,4 @@ git checkout feature/Expense_Tracker
 *Junior Fullstack Developer*  
 - 📩 **Email:** fontawestbrook99@gmail.com  
 - 🌍 **Location:** Cameroon (Open to remote opportunities)  
-- 💼 **GitHub:** [RusselFonta](https://github.com)
+- 💼 **GitHub:** [RusselFonta](https://github.com/russelfonta)
