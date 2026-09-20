@@ -18,15 +18,15 @@ const saveToLocalStorage = () => {
 
 const updateTransaction = () => {
   const currentIncome = saveTransaction
-  .filter(currentValue => currentValue.amount > 0)
-  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+    .filter(currentValue => currentValue.amount > 0)
+    .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
 
   const currentExpense = saveTransaction
-  .filter(currentValue => currentValue.amount < 0)
-  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+    .filter(currentValue => currentValue.amount < 0)
+    .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
 
   const currentBalance = saveTransaction
-  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+    .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
 
   const balanceSign = currentBalance < 0 ? '-' : ''
   const expenseSign = currentExpense < 0 ? '-' : ''
@@ -38,7 +38,7 @@ const updateTransaction = () => {
 }
 
 // function to create new tag and application of border style base transAmount
-function renderTransactionDOM (trans) {
+function renderTransactionDOM(trans) {
   const newTransaction = document.createElement('li')
   newTransaction.style.borderRight = trans.amount < 0 ? '4px solid #ff0000' : '4px solid #03fc5e'
 
