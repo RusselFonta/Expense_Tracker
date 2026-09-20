@@ -17,13 +17,24 @@ const saveToLocalStorage = () => {
 }
 
 const updateTransaction = () => {
-  const numBalance = Number(currentBalance)
-  const numIncome = Number(currentIncome)
-  const numExpense = Number(currentExpense)
+  const currentIncome = saveTransaction
+  .filter(currentValue => currentValue.amount > 0)
+  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
 
-  balance.textContent = `$${numBalance.toFixed(2)}`
-  income.textContent = `$${numIncome.toFixed(2)}`
-  expense.textContent = `$${numExpense.toFixed(2)}`
+  const currentExpense = saveTransaction
+  .filter(currentValue => currentValue.amount < 0)
+  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+
+  const currentBalance = saveTransaction
+  .reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+
+  const balanceSign = currentBalance < 0 ? '-' : ''
+  const expenseSign = currentExpense < 0 ? '-' : ''
+
+  balance.textContent = `${balanceSign}$${Math.abs(currentBalance).toFixed(2)}`
+  income.textContent = `${currentIncome.toFixed(2)}`
+  expense.textContent = `${expenseSign}$${Math.abs(currentExpense).toFixed(2)}`
+
 }
 
 // function to create new tag and application of border style base transAmount
