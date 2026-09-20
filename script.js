@@ -103,6 +103,7 @@ button.addEventListener('click', (e) => {
 reset.addEventListener('click', () => {
   if (confirm("Do you want to reset everything'history ?")) {
     localStorage.clear()
+    saveTransaction = []
     transactionList.innerHTML = ''
 
     updateTransaction()
