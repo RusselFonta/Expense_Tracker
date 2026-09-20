@@ -59,13 +59,6 @@ function renderTransactionDOM (trans) {
   deleteTransaction.addEventListener('click', () => {
     saveTransaction = saveTransaction.filter(tr => tr.id !== trans.id)
 
-    currentBalance -= trans.amount
-    if (trans.amount > 0) {
-      currentIncome -= trans.amount
-    } else {
-      currentExpense -= trans.amount
-    }
-
     newTransaction.remove()
     saveToLocalStorage()
     updateTransaction()
@@ -94,13 +87,6 @@ button.addEventListener('click', (e) => {
     id: Date.now(),
     name: transName,
     amount: transAmount
-  }
-
-  currentBalance += transation.amount
-  if (transation.amount > 0) {
-    currentIncome += transation.amount
-  } else {
-    currentExpense += transation.amount
   }
 
   saveTransaction.push(transation)
