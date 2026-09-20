@@ -32,7 +32,7 @@ const updateTransaction = () => {
   const expenseSign = currentExpense < 0 ? '-' : ''
 
   balance.textContent = `${balanceSign}$${Math.abs(currentBalance).toFixed(2)}`
-  income.textContent = `${currentIncome.toFixed(2)}`
+  income.textContent = `+$${currentIncome.toFixed(2)}`
   expense.textContent = `${expenseSign}$${Math.abs(currentExpense).toFixed(2)}`
 
 }
