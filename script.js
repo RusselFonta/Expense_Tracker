@@ -82,8 +82,9 @@ button.addEventListener('click', (e) => {
   }
 
   // initialization of an object that will be use as parameter in function
+  //use cryto.random to generate a unique unversal identifier in version 4 in a crytographic secured manner.
   const transation = {
-    id: Date.now(),
+    id: crypto.randomUUID(),
     name: transName,
     amount: transAmount
   }
