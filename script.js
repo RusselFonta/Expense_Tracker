@@ -37,7 +37,7 @@ const updateTransaction = () => {
 }
 
 // function to create new tag and application of border style base transAmount
-function renderTransactionDOM(trans) {
+function renderTransactionDOM (trans) {
   const newTransaction = document.createElement('li')
   newTransaction.style.borderRight = trans.amount < 0 ? '4px solid #ff0000' : '4px solid #03fc5e'
 
