@@ -37,7 +37,7 @@ const updateTransaction = () => {
 }
 
 // function to create new tag and application of border style base transAmount
-function renderTransactionDOM (trans) {
+function renderTransactionDOM(trans) {
   const newTransaction = document.createElement('li')
   newTransaction.style.borderRight = trans.amount < 0 ? '4px solid #ff0000' : '4px solid #03fc5e'
 
@@ -82,7 +82,7 @@ button.addEventListener('click', (e) => {
   }
 
   // initialization of an object that will be use as parameter in function
-  //use cryto.random to generate a unique unversal identifier in version 4 in a crytographic secured manner.
+  // use cryto.random to generate a unique unversal identifier in version 4 in a crytographic secured manner.
   const transation = {
     id: crypto.randomUUID(),
     name: transName,
@@ -101,7 +101,7 @@ button.addEventListener('click', (e) => {
 
 // reset button to clear the entire information include the one in the local storage
 reset.addEventListener('click', () => {
-  if (confirm("Reset all transactions? This cannot be undone.")) {
+  if (confirm('Reset all transactions? This cannot be undone.')) {
     localStorage.clear()
     saveTransaction = []
     transactionList.innerHTML = ''
